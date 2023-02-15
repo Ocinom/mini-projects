@@ -111,7 +111,7 @@ if __name__ == "__main__":
 
     parser.add_argument('-v', '--verbose', action='store_true')
     parser.add_argument('-S', '--set', action='store_true')
-    parser.add_argument('-A', '--aggregate', action='store_true')
+    parser.add_argument('-A', '--arrangement', action='store_true')
     parser.add_argument('-R', '--rearrange-file', action='store_true')
     parser.add_argument('-i', '--indexed', action='store_true')
 
@@ -127,7 +127,7 @@ if __name__ == "__main__":
 
     # Program will stop when there is more than or less than one
     # arg selected between -R, S, and -A
-    if args['aggregate'] + args['set'] + args['rearrange_file'] != 1:
+    if args['arrangement'] + args['set'] + args['rearrange_file'] != 1:
         print('Either the -S, -A, or -R flag must be set (and not zero, two or more simultaneously)')
         exit()
 
@@ -135,7 +135,7 @@ if __name__ == "__main__":
         args = filter_keys(args, 'start', 'total_pages', 'verbose', 'delim')
         page_range(**args)
     
-    elif args['aggregate']:
+    elif args['arrangement']:
         args = filter_keys(args, 'total_pages', 'papers_per_stack', 'verbose', 'delim', 'indexed')
         page_stack(**args)
 
