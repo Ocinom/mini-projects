@@ -142,5 +142,6 @@ if __name__ == "__main__":
     elif args['rearrange_file']:
         if args['filename'] is None:
             print('A file is required (using the -f flag) to rearrange')
+            return
         args = filter_keys(args, 'filename', 'output', 'papers_per_stack', 'verbose')
         rearrange_pdf(**args)
