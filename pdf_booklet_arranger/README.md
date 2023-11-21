@@ -5,13 +5,13 @@ A simple command-line application written in python to reorder the pages in a pd
 I have many e-books that I want to print and physical copies are either scarce or non-existent. Additionally, I prefer to read on paper than on a screen (Weird, I know).
 
 ## How does this work?
-On a standard A4-sized paper, two A5-sized sheets can be printed on one side, thus four pages from a pdf document, such as a book, can be printed onto a single A4-sized sheet of paper. To make the paper fold into a booklet, the pages have to be ordered in a particular manner:
+On a standard A4-sized paper, four A5-sized sheets in total can be printed on both sides without overlap. To make the paper fold into a booklet, the pages have to be ordered in a particular manner:
 <mockup1>
 <mockup2>
   
 On one side of the paper, the fourth and first pages are printed from right-to-left, whereas on the other side, the second and third pages are printed from left-to-right. Reading is normally done facing the side of pages 2 and 3, and so the order of traversal along the pages follows a particular pattern: back-left, front-left, front-right, back-right.
 
-This is especially apparent when you stack multiple sheets of paper together.
+This is concept especially apparent when you stack multiple sheets of paper together.
 <mockup3>
 The pages are ordered from back-left to front-left from the furthest back page to the frontmost, followed by front-right to back-right from the frontmost page to the furthest back.
   
