@@ -19,6 +19,6 @@ Although it is technically possible to print out a book in this manner, it may b
 
 Using Bash on linux, you can input this command to rearrange all files within a directory (Assuming you are in that directory and `main.py` is also within that directory, adjust accordingly):
 ```bash
-mkdir done &&
+mkdir done;
 for file in ./*.pdf; do python main.py -R -f $file -o "done/${file:2:-4}"; done
 ```
