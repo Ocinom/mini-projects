@@ -120,10 +120,12 @@ if __name__ == "__main__":
     parser.add_argument('-t', '--total-pages', type=int, default=32)
     parser.add_argument('-s', '--start', type=int, default=1)
     parser.add_argument('-d', '--delim', type=str, default=',')
-    parser.add_argument('-f', '--filename', type=str)
-    parser.add_argument('-o', '--output', type=str, default='new_pdf.pdf')
 
-    args = vars(parser.parse_args())
+    parser.add_argument('-f', '--filename', nargs="*", type=str)
+    parser.add_argument('-o', '--output', nargs="*", type=str, default='new_pdf.pdf')
+
+    # args = vars(parser.parse_args())
+    args = vars(parser.parse_known_args()[0])
 
     # Program will stop when there is more than or less than one
     # arg selected between -R, S, and -A
@@ -142,6 +144,8 @@ if __name__ == "__main__":
     elif args['rearrange_file']:
         if args['filename'] is None:
             print('A file is required (using the -f flag) to rearrange')
-            return
+            exit()
         args = filter_keys(args, 'filename', 'output', 'papers_per_stack', 'verbose')
+        args['filename'] = ' '.join(args['filename'])
+        args['output'] = ' '.join(args['output'])
         rearrange_pdf(**args)
