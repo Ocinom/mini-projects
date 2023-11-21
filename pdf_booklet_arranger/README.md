@@ -16,3 +16,9 @@ This is especially apparent when you stack multiple sheets of paper together.
 The pages are ordered from back-left to front-left from the furthest back page to the frontmost, followed by front-right to back-right from the frontmost page to the furthest back.
   
 Although it is technically possible to print out a book in this manner, it may be challenging to actually bind it down the middle. A site I googled a few days ago (I don't remember which one, sue me) suggested that separate stacks of 8 sheets of paper can be combined and glued together for better binding. This means that books have to be divided into sets of 8*4 = 32 pages that are ordered in the abovementioned manner.
+
+Using Bash on linux, you can input this command to rearrange all files within a directory (Assuming you are in that directory and `main.py` is also within that directory, adjust accordingly):
+```bash
+mkdir done &&
+for file in ./*.pdf; do python main.py -R -f $file -o "done/${file:2:-4}"; done
+```
